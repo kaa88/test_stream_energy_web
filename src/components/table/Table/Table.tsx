@@ -15,7 +15,7 @@ export const Table = ({ className, ...props }: TableProps): JSX.Element => {
   return (
     <div className={cn([className, styles._])} {...props}>
       {items.map((sign) => (
-        <a className={styles.button} href={`/${sign}`} key={sign}>
+        <Link className={styles.button} to={`/${sign}`} key={sign}>
           <p className={styles.icon}>
             <Icon name={sign} />
           </p>
@@ -23,7 +23,7 @@ export const Table = ({ className, ...props }: TableProps): JSX.Element => {
             {(lang === "original" ? SIGN_TRANSLATE : SIGN_NAME)[sign]}
           </p>
           <p className={styles.period}>{SIGN_PERIOD[sign]}</p>
-        </a>
+        </Link>
       ))}
     </div>
   );

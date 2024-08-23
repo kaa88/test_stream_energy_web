@@ -18,6 +18,7 @@ export const CardPage = ({
   // tg.BackButton.show();
 
   tg.BackButton.onClick(() => navigate(-1));
+
   useEffect(() => {
     tg.BackButton.show();
     return () => {
@@ -35,8 +36,7 @@ export const CardPage = ({
     touchEndRef.current = e.changedTouches[0].screenX;
   };
   const onTouchEnd = (e: TouchEvent) => {
-    if (touchEndRef.current > touchStartRef.current + 100)
-      window.history.back(); //navigate(-1);
+    if (touchEndRef.current > touchStartRef.current + 100) navigate(-1);
   };
 
   useEffect(() => {
