@@ -1,4 +1,31 @@
 @import "/src/styles/variables.scss";
 
 ._ {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, auto));
+  grid-gap: 6px;
+  justify-content: center;
+}
+
+.button {
+  padding: 10px;
+  background-color: lightblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+body .icon {
+  svg {
+    width: 30px;
+    height: 30px;
+  }
+}
+.signName {
+  text-transform: uppercase;
+}
+.period {
+  font-size: 14px;
+  opacity: 0.7;
 }

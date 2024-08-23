@@ -9,7 +9,7 @@ export const Router = () => {
       element: <MainPage />,
     },
     {
-      path: "/card",
+      path: "/:sign",
       element: <CardPage />,
     },
   ]);

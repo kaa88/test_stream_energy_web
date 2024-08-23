@@ -1,0 +1,11 @@
+@import "/src/styles/variables.scss";
+
+._ {
+}
+.button {
+  padding: 5px 10px;
+  &.active {
+    background-color: lightgreen;
+    pointer-events: none;
+  }
+}

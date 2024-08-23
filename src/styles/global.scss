@@ -27,12 +27,12 @@ body {
 body {
   min-width: calc(315px - (100vw - 100%));
   overflow-x: hidden;
-  background-color: var(--color-background);
+  background-color: var(--tg-theme-bg-color);
   font-family: var(--font-main);
   font-size: inherit;
   line-height: 1.2;
-  color: var(--color-text);
-  fill: var(--color-text);
+  color: var(--tg-theme-text-color);
+  fill: var(--tg-theme-text-color);
 }
 
 // #root {
