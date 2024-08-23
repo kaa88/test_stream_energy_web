@@ -12,7 +12,6 @@ import { useFenching } from "../../../hooks/useFenching";
 import { Icon } from "../../ui/Icon/Icon";
 import { useParams } from "react-router";
 import { SIGN_NAME } from "../../../utils/const";
-import { useTelegram } from "../../../hooks/useTelegram";
 
 interface CardProps extends ComponentPropsWithoutRef<"div"> {}
 
@@ -33,12 +32,6 @@ export const Card = ({ className, ...props }: CardProps): JSX.Element => {
   useEffect(() => {
     if (lang) fetch();
   }, [lang]); // eslint-disable-line
-
-  const { tg } = useTelegram();
-
-  useEffect(() => {
-    tg.ready();
-  }, [content]); // eslint-disable-line
 
   const iconName = !!sign && SIGN_NAME[sign];
 

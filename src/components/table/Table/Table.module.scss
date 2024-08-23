@@ -1,4 +1,9 @@
 ._ {
+  & > p {
+    text-align: center;
+  }
+}
+.table {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, auto));
   grid-gap: 6px;
