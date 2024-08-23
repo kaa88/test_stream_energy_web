@@ -42,10 +42,8 @@ export const CardPage = ({
   };
   const onTouchEnd = (e: TouchEvent) => {
     if (touchEndRef.current > touchStartRef.current + 100) navigate(-1);
-    else {
-      setPos(0);
-      touchStartRef.current = 0;
-    }
+    setPos(0);
+    touchStartRef.current = 0;
   };
 
   useEffect(() => {
