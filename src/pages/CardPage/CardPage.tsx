@@ -15,8 +15,9 @@ export const CardPage = ({
 }: CardPageProps): JSX.Element => {
   const navigate = useNavigate();
   const { tg } = useTelegram();
-  tg.BackButton.show();
+  // tg.BackButton.show();
 
+  tg.BackButton.onClick(() => navigate(-1));
   useEffect(() => {
     tg.BackButton.show();
     return () => {
