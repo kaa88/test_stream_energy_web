@@ -17,6 +17,13 @@ export const CardPage = ({
   const { tg } = useTelegram();
   tg.BackButton.show();
 
+  useEffect(() => {
+    tg.BackButton.show();
+    return () => {
+      tg.BackButton.hide();
+    };
+  }, []); // eslint-disable-line
+
   const touchStartRef = useRef(0);
   const touchEndRef = useRef(0);
 
@@ -27,7 +34,8 @@ export const CardPage = ({
     touchEndRef.current = e.changedTouches[0].screenX;
   };
   const onTouchEnd = (e: TouchEvent) => {
-    if (touchEndRef.current > touchStartRef.current + 100) navigate(-1);
+    if (touchEndRef.current > touchStartRef.current + 100)
+      window.history.back(); //navigate(-1);
   };
 
   useEffect(() => {
