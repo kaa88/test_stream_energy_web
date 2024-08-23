@@ -28,7 +28,7 @@ export const App = () => {
 
   return (
     <LangContext.Provider value={[lang, setLang]}>
-      <Router />;
+      <Router />
     </LangContext.Provider>
   );
 };

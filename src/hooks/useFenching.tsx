@@ -7,8 +7,9 @@ export const useFenching = (callback: (...args: any) => any) => {
     try {
       setIsLoading(true);
       return await callback();
-    } catch (e) {
+    } catch (e: any) {
       console.error(e);
+      document.write(e?.message || "ERROR");
     } finally {
       setIsLoading(false);
     }
