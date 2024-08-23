@@ -18,11 +18,11 @@ export const Header = ({ className, ...props }: HeaderProps): JSX.Element => {
   return (
     <div className={cn([className, styles._])} {...props}>
       <div className={styles.backButtonBox}>
-        {!!sign && (
+        {/* {!!sign && (
           <button type="button" onClick={goBack}>
             <Icon name="chevron" />
           </button>
-        )}
+        )} */}
       </div>
       <LangSwitch />
     </div>

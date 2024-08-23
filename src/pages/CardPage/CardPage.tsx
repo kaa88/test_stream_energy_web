@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, useEffect, useRef } from "react";
+import { ComponentPropsWithoutRef, useEffect, useRef, useState } from "react";
 import cn from "classnames";
 import styles from "./CardPage.module.scss";
 import { Card } from "../../components/card/Card/Card";
@@ -15,8 +15,6 @@ export const CardPage = ({
 }: CardPageProps): JSX.Element => {
   const navigate = useNavigate();
   const { tg } = useTelegram();
-  // tg.BackButton.show();
-
   tg.BackButton.onClick(() => navigate(-1));
 
   useEffect(() => {
@@ -26,17 +24,28 @@ export const CardPage = ({
     };
   }, []); // eslint-disable-line
 
+  const [startPos, setStartPos] = useState(0);
+  const [pos, setPos] = useState(0);
+
   const touchStartRef = useRef(0);
   const touchEndRef = useRef(0);
 
   const onTouchStart = (e: TouchEvent) => {
-    touchStartRef.current = e.changedTouches[0].screenX;
+    const x = e.changedTouches[0].screenX;
+    setStartPos(x);
+    touchStartRef.current = x;
   };
   const onTouchMove = (e: TouchEvent) => {
-    touchEndRef.current = e.changedTouches[0].screenX;
+    const x = e.changedTouches[0].screenX;
+    setPos(x);
+    touchEndRef.current = x;
   };
   const onTouchEnd = (e: TouchEvent) => {
     if (touchEndRef.current > touchStartRef.current + 100) navigate(-1);
+    else {
+      setPos(0);
+      touchStartRef.current = 0;
+    }
   };
 
   useEffect(() => {
@@ -54,7 +63,14 @@ export const CardPage = ({
     <div className={cn([className, styles._])} {...props}>
       <Container>
         <Header />
-        <Card className={styles.card} />
+        <Card
+          className={styles.card}
+          style={{
+            transform: `translateX(${
+              pos - startPos > 0 ? pos - startPos : 0
+            }px)`,
+          }}
+        />
       </Container>
     </div>
   );
